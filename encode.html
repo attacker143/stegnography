@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Upload Image</title>
+        <style>
+            .img{
+                height:500px;
+                width:500px;
+            }
+        </style>
+    </head>
+    <body bgcolor="black">
+        <div class="col-md-offset-3 col-md-5" style="margin-top:50px">
+            <form action="/encode" method="POST" enctype="multipart/form-data">
+               <center><h1 style="font-weight: bold;font-family: arial;color: red;background: yellow;width: 500px">HIDE DATA INSIDE IN IMAGE</h1> 
+              <br>
+              <br>  
+             <div style="color: blue;font-weight: bold;">
+                TYPE SECRET MESSAGE  
+              </div>
+              <br>
+              <textarea name="encode_data" rows="4" cols="50"></textarea>
+              <br>  
+                <h3 class="page-header text-primary" style="color: blue;font-weight: bold;">Cover Upload Image</h3>
+                
+                <div class="form-group">
+                    <label style="color: blue;font-weight: bold;">Browse Image</label>
+                    <input type="file" class="form-control" name="upload_image" required="">
+                </div>
+                <br>
+                <br>
+                <div class="form-group" style="margin-right: 50px">
+                    <input type="submit" class="btn btn-primary btn-block" name="upload_image" value="  Hide Date   " style="color: black; background: white;font-weight: bold;">
+
+                </div>
+                <br>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category,message in messages %}
+                            <div class="alert alert-{{category}} " style="color: red;background: white;width: 200px;height: 30px">{{message}}
+                             <br>
+                             <br>
+                             <br>
+                             <a href="/download" style="color: white;"> download images</a>   
+
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </center>
+
+                
+            </form>
+        </div>
+    </body>
+</html>
